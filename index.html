@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>灵犀志趣</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="灵犀志趣">
+<meta property="og:url" content="http://cnblog.lingcc.com/index.html">
+<meta property="og:site_name" content="灵犀志趣">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="灵犀志趣">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="灵犀志趣" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-11871774-5', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  <meta name="msvalidate.01" content="82B4B2E58066059C0F3DD29DAC0F7FCD" />
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">灵犀志趣</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注机器学习、性能、编译、存储、编程语言</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://cnblog.lingcc.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Google-TPU-Machine-Learning-Accelerator" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/" class="article-date">
+  <time datetime="2016-05-20T13:13:16.916Z" itemprop="datePublished">2016-05-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/">机器学习加速芯片盘点(一)---Google Tensor Processing Unit(TPU)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Google-TPU简介"><a href="#Google-TPU简介" class="headerlink" title="Google TPU简介"></a>Google TPU简介</h2><p>相比前两年Google I/O上Android唱主角，今年的Google I/O 2016 人工智能占了上风。作为人才储备，研发实力在全球无出其右的巨无霸公司，机器学习加速芯片也就成为了Google必将涉足的领域。</p>
+<p>刚刚发表的<a href="https://cloudplatform.googleblog.com/2016/05/Google-supercharges-machine-learning-tasks-with-custom-chip.html" target="_blank" rel="external">Google云平台博文(墙外)</a>正式向外界公开了Google在机器学习加速芯片领域的最新进展。他们自己做了一个TPU(Tensor Processing Unit，张量处理单元),这是一个针对机器学习应用定制的ASIC(专用集成电路)芯片，并针对TensorFlow这一深度学习框架做了针对性的裁剪。（本文中提到的所有Tensor，都是指张量，它是机器学习计算中用于保存参数的多维数组，是机器学习计算的操作对象。) Google已经在自家的数据中心中使用TPU超过一年时间。该芯片能为机器学习应用带来一个数量级(十倍至数十倍)的 <strong>能效</strong> 提升。Google在博文中称，这种一个数量级的性能提升，相当于领先了摩尔定律七年。</p>
+<p>TPU是专门为机器学习应用而设计的专用芯片。通过降低芯片的计算精度，减少实现每个计算操作所需的晶体管数量，从而能让芯片的每秒运行的操作个数更高，这样经过精细调优的机器学习模型就能在芯片上运行的更快，进而更快的让用户得到更智能的结果。Google将TPU加速器芯片嵌入电路板中，利用已有的硬盘PCI-E接口接入数据中心服务器中。</p>
+<img src="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/TPU-top-with-ruler-x-500.jpg" alt="TPU-top-with-ruler-x-500.jpg" title="">
+<img src="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/TPU-back-x-500.jpg" alt="TPU-back-x-500.jpg" title="">
+<p>TPU加速板已经用在了Google内部不少地方，博文中提到的有RankBrain，谷歌街景，AlphaGo.研发TPU，Google也是想能在机器学习领域广泛布局，并将TPU用于Google的TensorFlow和Cloud Machine Learning加速。</p>
+<img src="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/tpu-1.png" alt="tpu-1.png" title="">
+<h2 id="《灵犀志趣》评论"><a href="#《灵犀志趣》评论" class="headerlink" title="《灵犀志趣》评论"></a>《灵犀志趣》评论</h2><p>Google做TPU并不让人感到意外，因为面对机器学习这样需要巨大运算量且越来越重要的应用，对现有硬件做系统全面的针对性优化还需要一些时间。有关TPU，Google对外披露的信息并不多，目前为止虽仅有一篇博文，不过也能发现几个有意思的地方。</p>
+<ul>
+<li>TPU的性能与定位</li>
+<li>TPU的主设计师：Norm Jouppi</li>
+<li>TensorFlow：TPU要加速的机器学习计算框架</li>
+<li>SGI在2000年左右发布的Tensor Processing Unit</li>
+</ul>
+<h3 id="TPU的性能与定位"><a href="#TPU的性能与定位" class="headerlink" title="TPU的性能与定位"></a>TPU的性能与定位</h3><p>Google的博文中提到了TPU可以将机器学习应用的能效提升一个数量级，而非性能。加上ASIC芯片一般受温度和时钟影响大，因此利用TPU提升机器学习应用的性能，估计要依赖于增加机器学习应用本身的并行性。</p>
+<p>关于TPU是如何提升能效的，博文中只提到了“low-precision arithmetic”。结合目前深度学习领域的研究趋势，<a href="https://petewarden.com/2016/05/03/how-to-quantize-neural-networks-with-tensorflow/" target="_blank" rel="external">Google工程师的博文</a>,以及<a href="https://github.com/google/gemmlowp" target="_blank" rel="external">github上的gemmlowp Repo</a> ，《灵犀志趣》有理由相信，TPU使用了int8, 8位浮点数，或者<a href="https://en.wikipedia.org/wiki/Half-precision_floating-point_format" target="_blank" rel="external">16位浮点数(half-precision floating point)</a>取代float32来降低运算精度提升性能。</p>
+<p>目前TPU是为数不多的，有实际流片的机器学习加速器芯片（另外一个著名的此类芯片是中科院计算所的DianNao系列芯片）。结合半导体芯片设计领域常用的，先FPGA，再ASIC的流程，我们也有理由相信TPU有不错的性能表现。</p>
+<p>选择在Google的云平台博客上发布此芯片，也说明目前Google TPU还主要用于在cloud端用于机器学习的训练，即与Nvidia的GPU直接PK。</p>
+<h3 id="Google-TPU的主设计师-Norm-Jouppi"><a href="#Google-TPU的主设计师-Norm-Jouppi" class="headerlink" title="Google TPU的主设计师 Norm Jouppi"></a>Google TPU的主设计师 Norm Jouppi</h3><p><a href="https://www.computer.org/web/awards/goode-norman-jouppi" target="_blank" rel="external">Norm Jouppi</a>  是IEEE fellow，目前在Google的头衔是Distinguished Hardware Engineer, 他曾是MIPS处理器的架构师和主要设计者之一。他的主要成就集中在计算机的存储系统方向，包括Cache缓存的硬件实现及优化，CACTI计算机存储建模工具，并在多款图像加速器的架构和设计中作出了不少贡献。</p>
+<p>Norm Jouppi 2013年9月正式加入Google，并从评测现有的CPU、GPU以及FPGA实现着手从事Google内部机器学习硬件加速器的设计。Norm Jouppi说，在加入Google重操旧业设计芯片的过程中发现，其实现在大量的芯片设计中的基本问题还和当年一样，只是比当年更复杂了些，有更多各种各样的设计规则要遵守，所处理的问题中的牵涉到数值比原来要大了很多。</p>
+<img src="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/Norm-Jouppi-with-cap.jpg" alt="Norm-Jouppi-with-cap.jpg" title="">
+<p>结合Norm Jouppi在计算机内存系统领域的深入了解，以及机器学习性能瓶颈主要在访存的特点，我们有理由相信Google的TPU片上存储将占较大面积，且在访存设计上会有些亮点，期待今年秋季Google能给出更多TPU芯片设计的细节。</p>
+<h3 id="TensorFlow与TPU"><a href="#TensorFlow与TPU" class="headerlink" title="TensorFlow与TPU"></a>TensorFlow与TPU</h3><p>各大稍微可以涉足互联网和深度学习领域的巨头，几乎都开源了自己的机器学习计算框架，比如Microsoft(<a href="http://www.dmtk.io/" target="_blank" rel="external">DMTK</a>)，Google(<a href="https://www.tensorflow.org/" target="_blank" rel="external">TensorFlow</a>)， FaceBook(<a href="http://torch.ch/" target="_blank" rel="external">Torch</a>), Amazon(<a href="https://github.com/amznlabs/amazon-dsstne" target="_blank" rel="external">DSSTNE</a>), OpenAI(<a href="https://gym.openai.com/" target="_blank" rel="external">OpenAI Gym</a>)等。此外，还有一些业界常用的框架，如 <a href="http://caffe.berkeleyvision.org/" target="_blank" rel="external">Caffe</a>, <a href="http://mxnet.readthedocs.io/en/latest/" target="_blank" rel="external">Mxnet</a>.</p>
+<p>TensorFlow作为Google开源的框架，更加强调将训练过程中，以及训练得到的预测模型涉及的计算细化成针对Tensor的<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/core/kernels" target="_blank" rel="external">一个个运算</a>。这些运算通过有向无环图组织在一起。操作之间的依赖关系以边的形式保存在图中。目前虽然Google对外宣布的TPU只是ASIC，但是结合目前已有的Tensorflow的设计，以及机器学习应用的特点，有理由相信该处理器存在一个可以供机器学习模型选择的指令集合。基于这点推论，以及TPU较高的能效比，TPU很可能会采用可以提供较高计算密度和较低功耗的类似数字信号处理器（DSP，Digital Signal Processor）的VLIW执行架构，或者更简单的说，是想办法将TPU中存在的多个硬件执行单元，用软件并行的利用他们。 可以预见不久我们可能就能看到完整的TPU指令集,或者直接将Tensor的DAG在硬件中做依赖分析，从而实现<a href="https://en.wikipedia.org/wiki/Out-of-order_execution" target="_blank" rel="external">乱序执行</a>的TPU了。</p>
+<img src="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/tensors_flowing.gif" alt="tensors_flowing.gif" title="">
+<h3 id="SGI-Tensor-Processing-Unit"><a href="#SGI-Tensor-Processing-Unit" class="headerlink" title="SGI Tensor Processing Unit"></a>SGI Tensor Processing Unit</h3><p>SGI在2000年左右也发布过一款名为Tensor Processing Unit的加速器。这款加速器是基于数字信号处理器（DSP）的物理加速器，用于SGI当年的Origin 平台。</p>
+<p>虽然名字相同，SGI的TPU主要用于雷达、医学图像（CT），图像处理（压缩，解压缩和滤波）等。而Google家的TPU则主要用于机器学习。 但是仔细琢磨一下，之所以都叫做Tensor，似乎又有几分相似。实际上，当年SGI设计它的TPU的初衷也是为了数组的处理，因此都用了Tensor（张量）一词。这两个TPU可以说是一点关系都没有。</p>
+<p>此外，SGI的TPU是一款可编程的DSP处理器，有自己的指令集，而Google的TPU则是一款专用集成电路芯片，没有指令集。</p>
+<p>下图为SGI TPU的处理器架构图：<br><img src="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/sgi_tpu.png" alt="sgi_tpu.png" title=""></p>
+<h2 id="关于《灵犀志趣》评论"><a href="#关于《灵犀志趣》评论" class="headerlink" title="关于《灵犀志趣》评论"></a>关于《灵犀志趣》评论</h2><p>《灵犀志趣》是一个有计算机技术爱好者发起的网站，我们秉承快乐分享，共同学习的原则，将日常工作生活中所涉及的业界有趣的新闻资讯，结合自身所学所知，试图深度剖析，并记录下来。因此命为《灵犀志趣》。《灵犀志趣》的文章都仅仅作为创办者以及感兴趣的朋友交流的媒介。虽然我们努力搜集各类相关信息，用心写好每篇文章，但因技术能力不高，所学所知有限，内容难免有错误或者疏漏，请朋友们不吝斧正，谢谢。</p>
+<p>因为可能存在的主观偏见，所呈现的内容未必公正正确的反映客观事实。因此，我们都会尽量在文末附上本文的参考资料，朋友们可以自行阅读。此外，如您对文章有任何看法，欢迎交流。</p>
+<img src="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/lingcc_qr_small.png" alt="lingcc_qr_small.png" title="">
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.macgg.com/archives/44861.html" target="_blank" rel="external">http://www.macgg.com/archives/44861.html</a></li>
+<li><a href="https://cloudplatform.googleblog.com/2016/05/Google-supercharges-machine-learning-tasks-with-custom-chip.html" target="_blank" rel="external">https://cloudplatform.googleblog.com/2016/05/Google-supercharges-machine-learning-tasks-with-custom-chip.html</a></li>
+<li><a href="https://cseweb.ucsd.edu/classes/fa11/cse240A-a/Slides1/04_Jouppi.pdf" target="_blank" rel="external">https://cseweb.ucsd.edu/classes/fa11/cse240A-a/Slides1/04_Jouppi.pdf</a></li>
+<li><a href="http://www.hpl.hp.com/research/cacti/" target="_blank" rel="external">http://www.hpl.hp.com/research/cacti/</a></li>
+<li><a href="http://dblp.uni-trier.de/pers/hd/j/Jouppi:Norman_P=" target="_blank" rel="external">http://dblp.uni-trier.de/pers/hd/j/Jouppi:Norman_P=</a></li>
+<li><a href="https://www.linkedin.com/in/todd-letsche-b5a4961b" target="_blank" rel="external">https://www.linkedin.com/in/todd-letsche-b5a4961b</a></li>
+<li><a href="https://slashdot.org/story/02/11/11/1711200/sgi-introduces-worlds-densest-server" target="_blank" rel="external">https://slashdot.org/story/02/11/11/1711200/sgi-introduces-worlds-densest-server</a></li>
+<li><a href="http://www.cardiff.ac.uk/arcca/services/events/NovelArchitecture/Michael-Woodacre.pdf" target="_blank" rel="external">http://www.cardiff.ac.uk/arcca/services/events/NovelArchitecture/Michael-Woodacre.pdf</a></li>
+<li><a href="https://news.ycombinator.com/item?id=11724763" target="_blank" rel="external">https://news.ycombinator.com/item?id=11724763</a></li>
+<li><a href="http://www.eetimes.com/document.asp?doc_id=1329722" target="_blank" rel="external">http://www.eetimes.com/document.asp?doc_id=1329722</a></li>
+<li><a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=6657019&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel7%2F6644329%2F6657009%2F06657019.pdf%3Farnumber%3D6657019" target="_blank" rel="external">http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=6657019&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel7%2F6644329%2F6657009%2F06657019.pdf%3Farnumber%3D6657019</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software" target="_blank" rel="external">https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software</a></li>
+<li><a href="https://www.tensorflow.org/" target="_blank" rel="external">https://www.tensorflow.org/</a></li>
+<li><a href="http://www.anandtech.com/show/10340/googles-tensor-processing-unit-what-we-know" target="_blank" rel="external">http://www.anandtech.com/show/10340/googles-tensor-processing-unit-what-we-know</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cnblog.lingcc.com/2016/05/20/Google-TPU-Machine-Learning-Accelerator/" data-id="ciofqye14000082hn9aqvxp1a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CNN/">CNN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google/">Google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Network/">Neural Network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TPU/">TPU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chips/">chips</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人工神经网络/">人工神经网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/深度学习/">深度学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/硬件加速器/">硬件加速器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/芯片设计/">芯片设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/谷歌/">谷歌</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
+    <article id="post-Hello-World" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/06/Hello-World/" class="article-date">
+  <time datetime="2016-05-06T15:10:46.000Z" itemprop="datePublished">2016-05-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/06/Hello-World/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Let’s play together with the funny code world. We want to be the best friend for all programmers around the world!</p>
+<p>Nice to see you coders.</p>
+<p>Lingcc.com</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cnblog.lingcc.com/2016/05/06/Hello-World/" data-id="ciofk31p700076shnae6po30e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNN/">CNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Network/">Neural Network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TPU/">TPU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chips/">chips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/人工神经网络/">人工神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深度学习/">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/硬件加速器/">硬件加速器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/芯片设计/">芯片设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/谷歌/">谷歌</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/TPU/" style="font-size: 10px;">TPU</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/chips/" style="font-size: 10px;">chips</a> <a href="/tags/人工神经网络/" style="font-size: 10px;">人工神经网络</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 10px;">深度学习</a> <a href="/tags/硬件加速器/" style="font-size: 10px;">硬件加速器</a> <a href="/tags/芯片设计/" style="font-size: 10px;">芯片设计</a> <a href="/tags/谷歌/" style="font-size: 10px;">谷歌</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/20/Google-TPU-Machine-Learning-Accelerator/">机器学习加速芯片盘点(一)---Google Tensor Processing Unit(TPU)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/06/Hello-World/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Lingcc.com<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

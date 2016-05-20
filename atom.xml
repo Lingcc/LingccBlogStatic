@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>灵犀志趣</title>
+  <subtitle>关注机器学习、性能、编译、存储、编程语言</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://cnblog.lingcc.com/"/>
+  <updated>2016-05-20T12:59:12.841Z</updated>
+  <id>http://cnblog.lingcc.com/</id>
+  
+  <author>
+    <name>Lingcc.com</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习加速芯片盘点(一)---Google Tensor Processing Unit(TPU)</title>
+    <link href="http://cnblog.lingcc.com/2016/05/20/Google-TPU-Machine-Learning-Accelerator/"/>
+    <id>http://cnblog.lingcc.com/2016/05/20/Google-TPU-Machine-Learning-Accelerator/</id>
+    <published>2016-05-20T13:13:16.916Z</published>
+    <updated>2016-05-20T12:59:12.841Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Google-TPU简介&quot;&gt;&lt;a href=&quot;#Google-TPU简介&quot; class=&quot;headerlink&quot; title=&quot;Google TPU简介&quot;&gt;&lt;/a&gt;Google TPU简介&lt;/h2&gt;&lt;p&gt;相比前两年Google I/O上Android唱主角，今年的Google I/O 2016 人工智能占了上风。作为人才储备，研发实力在全球无出其右的巨无霸公司，机器学习加速芯片也就成为了Google必将涉足的领域。&lt;/p&gt;
+&lt;p&gt;刚刚发表的&lt;a href=&quot;https://cloudplatform.googleblog.com/2016/05/Google-supercharges-machine-learning-tasks-with-custom-chip.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Google云平台博文(墙外)&lt;/a&gt;正式向外界公开了Google在机器学习加速芯片领域的最新进展。他们自己做了一个TPU(Tensor Processing Unit，张量处理单元),这是一个针对机器学习应用定制的ASIC(专用集成电路)芯片，并针对TensorFlow这一深度学习框架做了针对性的裁剪。（本文中提到的所有Tensor，都是指张量，它是机器学习计算中用于保存参数的多维数组，是机器学习计算的操作对象。) Google已经在自家的数据中心中使用TPU超过一年时间。该芯片能为机器学习应用带来一个数量级(十倍至数十倍)的 &lt;strong&gt;能效&lt;/strong&gt; 提升。Google在博文中称，这种一个数量级的性能提升，相当于领先了摩尔定律七年。&lt;/p&gt;
+&lt;p&gt;TPU是专门为机器学习应用而设计的专用芯片。通过降低芯片的计算精度，减少实现每个计算操作所需的晶体管数量，从而能让芯片的每秒运行的操作个数更高，这样经过精细调优的机器学习模型就能在芯片上运行的更快，进而更快的让用户得到更智能的结果。Google将TPU加速器芯片嵌入电路板中，利用已有的硬盘PCI-E接口接入数据中心服务器中。&lt;/p&gt;
+&lt;img src=&quot;/2016/05/20/Google-TPU-Machine-Learning-Accelerator/TPU-top-with-ruler-x-500.jpg&quot; alt=&quot;TPU-top-with-ruler-x-500.jpg&quot; title=&quot;&quot;&gt;
+&lt;img src=&quot;/2016/05/20/Google-TPU-Machine-Learning-Accelerator/TPU-back-x-500.jpg&quot; alt=&quot;TPU-back-x-500.jpg&quot; title=&quot;&quot;&gt;
+&lt;p&gt;TPU加速板已经用在了Google内部不少地方，博文中提到的有RankBrain，谷歌街景，AlphaGo.研发TPU，Google也是想能在机器学习领域广泛布局，并将TPU用于Google的TensorFlow和Cloud Machine Learning加速。&lt;/p&gt;
+&lt;img src=&quot;/2016/05/20/Google-TPU-Machine-Learning-Accelerator/tpu-1.png&quot; alt=&quot;tpu-1.png&quot; title=&quot;&quot;&gt;
+&lt;h2 id=&quot;《灵犀志趣》评论&quot;&gt;&lt;a href=&quot;#《灵犀志趣》评论&quot; class=&quot;headerlink&quot; title=&quot;《灵犀志趣》评论&quot;&gt;&lt;/a&gt;《灵犀志趣》评论&lt;/h2&gt;&lt;p&gt;Google做TPU并不让人感到意外，因为面对机器学习这样需要巨大运算量且越来越重要的应用，对现有硬件做系统全面的针对性优化还需要一些时间。有关TPU，Google对外披露的信息并不多，目前为止虽仅有一篇博文，不过也能发现几个有意思的地方。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TPU的性能与定位&lt;/li&gt;
+&lt;li&gt;TPU的主设计师：Norm Jouppi&lt;/li&gt;
+&lt;li&gt;TensorFlow：TPU要加速的机器学习计算框架&lt;/li&gt;
+&lt;li&gt;SGI在2000年左右发布的Tensor Processing Unit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;TPU的性能与定位&quot;&gt;&lt;a href=&quot;#TPU的性能与定位&quot; class=&quot;headerlink&quot; title=&quot;TPU的性能与定位&quot;&gt;&lt;/a&gt;TPU的性能与定位&lt;/h3&gt;&lt;p&gt;Google的博文中提到了TPU可以将机器学习应用的能效提升一个数量级，而非性能。加上ASIC芯片一般受温度和时钟影响大，因此利用TPU提升机器学习应用的性能，估计要依赖于增加机器学习应用本身的并行性。&lt;/p&gt;
+&lt;p&gt;关于TPU是如何提升能效的，博文中只提到了“low-precision arithmetic”。结合目前深度学习领域的研究趋势，&lt;a href=&quot;https://petewarden.com/2016/05/03/how-to-quantize-neural-networks-with-tensorflow/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Google工程师的博文&lt;/a&gt;,以及&lt;a href=&quot;https://github.com/google/gemmlowp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;github上的gemmlowp Repo&lt;/a&gt; ，《灵犀志趣》有理由相信，TPU使用了int8, 8位浮点数，或者&lt;a href=&quot;https://en.wikipedia.org/wiki/Half-precision_floating-point_format&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;16位浮点数(half-precision floating point)&lt;/a&gt;取代float32来降低运算精度提升性能。&lt;/p&gt;
+&lt;p&gt;目前TPU是为数不多的，有实际流片的机器学习加速器芯片（另外一个著名的此类芯片是中科院计算所的DianNao系列芯片）。结合半导体芯片设计领域常用的，先FPGA，再ASIC的流程，我们也有理由相信TPU有不错的性能表现。&lt;/p&gt;
+&lt;p&gt;选择在Google的云平台博客上发布此芯片，也说明目前Google TPU还主要用于在cloud端用于机器学习的训练，即与Nvidia的GPU直接PK。&lt;/p&gt;
+&lt;h3 id=&quot;Google-TPU的主设计师-Norm-Jouppi&quot;&gt;&lt;a href=&quot;#Google-TPU的主设计师-Norm-Jouppi&quot; class=&quot;headerlink&quot; title=&quot;Google TPU的主设计师 Norm Jouppi&quot;&gt;&lt;/a&gt;Google TPU的主设计师 Norm Jouppi&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.computer.org/web/awards/goode-norman-jouppi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Norm Jouppi&lt;/a&gt;  是IEEE fellow，目前在Google的头衔是Distinguished Hardware Engineer, 他曾是MIPS处理器的架构师和主要设计者之一。他的主要成就集中在计算机的存储系统方向，包括Cache缓存的硬件实现及优化，CACTI计算机存储建模工具，并在多款图像加速器的架构和设计中作出了不少贡献。&lt;/p&gt;
+&lt;p&gt;Norm Jouppi 2013年9月正式加入Google，并从评测现有的CPU、GPU以及FPGA实现着手从事Google内部机器学习硬件加速器的设计。Norm Jouppi说，在加入Google重操旧业设计芯片的过程中发现，其实现在大量的芯片设计中的基本问题还和当年一样，只是比当年更复杂了些，有更多各种各样的设计规则要遵守，所处理的问题中的牵涉到数值比原来要大了很多。&lt;/p&gt;
+&lt;img src=&quot;/2016/05/20/Google-TPU-Machine-Learning-Accelerator/Norm-Jouppi-with-cap.jpg&quot; alt=&quot;Norm-Jouppi-with-cap.jpg&quot; title=&quot;&quot;&gt;
+&lt;p&gt;结合Norm Jouppi在计算机内存系统领域的深入了解，以及机器学习性能瓶颈主要在访存的特点，我们有理由相信Google的TPU片上存储将占较大面积，且在访存设计上会有些亮点，期待今年秋季Google能给出更多TPU芯片设计的细节。&lt;/p&gt;
+&lt;h3 id=&quot;TensorFlow与TPU&quot;&gt;&lt;a href=&quot;#TensorFlow与TPU&quot; class=&quot;headerlink&quot; title=&quot;TensorFlow与TPU&quot;&gt;&lt;/a&gt;TensorFlow与TPU&lt;/h3&gt;&lt;p&gt;各大稍微可以涉足互联网和深度学习领域的巨头，几乎都开源了自己的机器学习计算框架，比如Microsoft(&lt;a href=&quot;http://www.dmtk.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;DMTK&lt;/a&gt;)，Google(&lt;a href=&quot;https://www.tensorflow.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;TensorFlow&lt;/a&gt;)， FaceBook(&lt;a href=&quot;http://torch.ch/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Torch&lt;/a&gt;), Amazon(&lt;a href=&quot;https://github.com/amznlabs/amazon-dsstne&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;DSSTNE&lt;/a&gt;), OpenAI(&lt;a href=&quot;https://gym.openai.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OpenAI Gym&lt;/a&gt;)等。此外，还有一些业界常用的框架，如 &lt;a href=&quot;http://caffe.berkeleyvision.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Caffe&lt;/a&gt;, &lt;a href=&quot;http://mxnet.readthedocs.io/en/latest/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mxnet&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;TensorFlow作为Google开源的框架，更加强调将训练过程中，以及训练得到的预测模型涉及的计算细化成针对Tensor的&lt;a href=&quot;https://github.com/tensorflow/tensorflow/tree/master/tensorflow/core/kernels&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一个个运算&lt;/a&gt;。这些运算通过有向无环图组织在一起。操作之间的依赖关系以边的形式保存在图中。目前虽然Google对外宣布的TPU只是ASIC，但是结合目前已有的Tensorflow的设计，以及机器学习应用的特点，有理由相信该处理器存在一个可以供机器学习模型选择的指令集合。基于这点推论，以及TPU较高的能效比，TPU很可能会采用可以提供较高计算密度和较低功耗的类似数字信号处理器（DSP，Digital Signal Processor）的VLIW执行架构，或者更简单的说，是想办法将TPU中存在的多个硬件执行单元，用软件并行的利用他们。 可以预见不久我们可能就能看到完整的TPU指令集,或者直接将Tensor的DAG在硬件中做依赖分析，从而实现&lt;a href=&quot;https://en.wikipedia.org/wiki/Out-of-order_execution&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;乱序执行&lt;/a&gt;的TPU了。&lt;/p&gt;
+&lt;img src=&quot;/2016/05/20/Google-TPU-Machine-Learning-Accelerator/tensors_flowing.gif&quot; alt=&quot;tensors_flowing.gif&quot; title=&quot;&quot;&gt;
+&lt;h3 id=&quot;SGI-Tensor-Processing-Unit&quot;&gt;&lt;a href=&quot;#SGI-Tensor-Processing-Unit&quot; class=&quot;headerlink&quot; title=&quot;SGI Tensor Processing Unit&quot;&gt;&lt;/a&gt;SGI Tensor Processing Unit&lt;/h3&gt;&lt;p&gt;SGI在2000年左右也发布过一款名为Tensor Processing Unit的加速器。这款加速器是基于数字信号处理器（DSP）的物理加速器，用于SGI当年的Origin 平台。&lt;/p&gt;
+&lt;p&gt;虽然名字相同，SGI的TPU主要用于雷达、医学图像（CT），图像处理（压缩，解压缩和滤波）等。而Google家的TPU则主要用于机器学习。 但是仔细琢磨一下，之所以都叫做Tensor，似乎又有几分相似。实际上，当年SGI设计它的TPU的初衷也是为了数组的处理，因此都用了Tensor（张量）一词。这两个TPU可以说是一点关系都没有。&lt;/p&gt;
+&lt;p&gt;此外，SGI的TPU是一款可编程的DSP处理器，有自己的指令集，而Google的TPU则是一款专用集成电路芯片，没有指令集。&lt;/p&gt;
+&lt;p&gt;下图为SGI TPU的处理器架构图：&lt;br&gt;&lt;img src=&quot;/2016/05/20/Google-TPU-Machine-Learning-Accelerator/sgi_tpu.png&quot; alt=&quot;sgi_tpu.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;关于《灵犀志趣》评论&quot;&gt;&lt;a href=&quot;#关于《灵犀志趣》评论&quot; class=&quot;headerlink&quot; title=&quot;关于《灵犀志趣》评论&quot;&gt;&lt;/a&gt;关于《灵犀志趣》评论&lt;/h2&gt;&lt;p&gt;《灵犀志趣》是一个有计算机技术爱好者发起的网站，我们秉承快乐分享，共同学习的原则，将日常工作生活中所涉及的业界有趣的新闻资讯，结合自身所学所知，试图深度剖析，并记录下来。因此命为《灵犀志趣》。《灵犀志趣》的文章都仅仅作为创办者以及感兴趣的朋友交流的媒介。虽然我们努力搜集各类相关信息，用心写好每篇文章，但因技术能力不高，所学所知有限，内容难免有错误或者疏漏，请朋友们不吝斧正，谢谢。&lt;/p&gt;
+&lt;p&gt;因为可能存在的主观偏见，所呈现的内容未必公正正确的反映客观事实。因此，我们都会尽量在文末附上本文的参考资料，朋友们可以自行阅读。此外，如您对文章有任何看法，欢迎交流。&lt;/p&gt;
+&lt;img src=&quot;/2016/05/20/Google-TPU-Machine-Learning-Accelerator/lingcc_qr_small.png&quot; alt=&quot;lingcc_qr_small.png&quot; title=&quot;&quot;&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.macgg.com/archives/44861.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.macgg.com/archives/44861.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cloudplatform.googleblog.com/2016/05/Google-supercharges-machine-learning-tasks-with-custom-chip.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://cloudplatform.googleblog.com/2016/05/Google-supercharges-machine-learning-tasks-with-custom-chip.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cseweb.ucsd.edu/classes/fa11/cse240A-a/Slides1/04_Jouppi.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://cseweb.ucsd.edu/classes/fa11/cse240A-a/Slides1/04_Jouppi.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.hpl.hp.com/research/cacti/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.hpl.hp.com/research/cacti/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://dblp.uni-trier.de/pers/hd/j/Jouppi:Norman_P=&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://dblp.uni-trier.de/pers/hd/j/Jouppi:Norman_P=&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.linkedin.com/in/todd-letsche-b5a4961b&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.linkedin.com/in/todd-letsche-b5a4961b&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://slashdot.org/story/02/11/11/1711200/sgi-introduces-worlds-densest-server&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://slashdot.org/story/02/11/11/1711200/sgi-introduces-worlds-densest-server&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cardiff.ac.uk/arcca/services/events/NovelArchitecture/Michael-Woodacre.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cardiff.ac.uk/arcca/services/events/NovelArchitecture/Michael-Woodacre.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://news.ycombinator.com/item?id=11724763&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://news.ycombinator.com/item?id=11724763&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.eetimes.com/document.asp?doc_id=1329722&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.eetimes.com/document.asp?doc_id=1329722&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=6657019&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel7%2F6644329%2F6657009%2F06657019.pdf%3Farnumber%3D6657019&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=6657019&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel7%2F6644329%2F6657009%2F06657019.pdf%3Farnumber%3D6657019&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.tensorflow.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.tensorflow.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.anandtech.com/show/10340/googles-tensor-processing-unit-what-we-know&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.anandtech.com/show/10340/googles-tensor-processing-unit-what-we-know&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Google-TPU简介&quot;&gt;&lt;a href=&quot;#Google-TPU简介&quot; class=&quot;headerlink&quot; title=&quot;Google TPU简介&quot;&gt;&lt;/a&gt;Google TPU简介&lt;/h2&gt;&lt;p&gt;相比前两年Google I/O上Android唱主角，今年的
+    
+    </summary>
+    
+    
+      <category term="CNN" scheme="http://cnblog.lingcc.com/tags/CNN/"/>
+    
+      <category term="chips" scheme="http://cnblog.lingcc.com/tags/chips/"/>
+    
+      <category term="芯片设计" scheme="http://cnblog.lingcc.com/tags/%E8%8A%AF%E7%89%87%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="机器学习" scheme="http://cnblog.lingcc.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="硬件加速器" scheme="http://cnblog.lingcc.com/tags/%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F%E5%99%A8/"/>
+    
+      <category term="人工神经网络" scheme="http://cnblog.lingcc.com/tags/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="Neural Network" scheme="http://cnblog.lingcc.com/tags/Neural-Network/"/>
+    
+      <category term="深度学习" scheme="http://cnblog.lingcc.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Google" scheme="http://cnblog.lingcc.com/tags/Google/"/>
+    
+      <category term="谷歌" scheme="http://cnblog.lingcc.com/tags/%E8%B0%B7%E6%AD%8C/"/>
+    
+      <category term="TPU" scheme="http://cnblog.lingcc.com/tags/TPU/"/>
+    
+      <category term="Tensorflow" scheme="http://cnblog.lingcc.com/tags/Tensorflow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://cnblog.lingcc.com/2016/05/06/Hello-World/"/>
+    <id>http://cnblog.lingcc.com/2016/05/06/Hello-World/</id>
+    <published>2016-05-06T15:10:46.000Z</published>
+    <updated>2016-05-20T13:17:00.990Z</updated>
+    
+    <content type="html">&lt;p&gt;Let’s play together with the funny code world. We want to be the best friend for all programmers around the world!&lt;/p&gt;
+&lt;p&gt;Nice to see you coders.&lt;/p&gt;
+&lt;p&gt;Lingcc.com&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let’s play together with the funny code world. We want to be the best friend for all programmers around the world!&lt;/p&gt;
+&lt;p&gt;Nice to see you
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
